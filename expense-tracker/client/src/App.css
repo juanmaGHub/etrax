@@ -1,0 +1,135 @@
+:root {
+    --primary: #7bb8b1;
+    --secondary: #f08a5d;
+    --tertiary: #888;
+    --background-1: #f8f8f2;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    place-items: center;
+    color: var(--primary);
+    background-color: var(--background-1);
+}
+
+.center-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 320px;
+    max-width: 1280px;
+}
+
+.row {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding: 1em;
+}
+
+.row.scroll { /* for tables */
+    overflow-y: scroll;
+    max-height: 30vh;
+    align-items: flex-start;
+    border-top: 1px solid var(--primary);
+}
+
+.row.scroll > table {
+    cursor: pointer;
+}
+
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+    overflow: hidden;
+}
+
+#loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    place-items: center;
+    place-content: center;
+    background-color: var(--background-1);
+    z-index: 1;
+}
+
+.logo {
+    height: 20em;
+    padding: 1.5em;
+    will-change: filter;
+    transition: filter 300ms;
+    border-radius: 50%;
+}
+
+.logo>img {
+    width: auto;
+    min-width: 320px;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 1rem;
+}
+
+.btn {
+    margin: 0.5em;
+    color: var(--primary);
+}
+
+.btn-primary {
+    color: var(--background-1);
+    background-color: var(--primary);
+}
+
+.btn-danger {
+    color: var(--background-1);
+    background-color: var(--secondary);
+}
+
+.card {
+    padding: 2em;
+}
+
+.primary {
+    color: var(--primary) !important;
+    background-color: var(--background-1) !important;
+}
+
+.background-1 {
+    background-color: var(--background-1) !important;
+}
+
+.no-shadow {
+    box-shadow: none !important;
+}
+
+.m0 {
+    margin: 0 !important;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@media screen and (max-width: 768px){
+    #root {
+        padding: 0;
+    }
+    .logo {
+        height: 10em;
+    }
+    p {
+        font-size: .8em;
+    }
+}
