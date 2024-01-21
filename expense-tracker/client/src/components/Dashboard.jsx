@@ -4,10 +4,16 @@ import userIcon from "../assets/user-solid.svg";
 import chartIcon from "../assets/chart-simple-solid.svg";
 import plusIcon from "../assets/plus-solid.svg";
 import { Summary, AddExpense, Profile } from "./DashboardContent";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Dashboard() {
-    const { logoutUser } = useAuth();
+    const { user, logoutUser } = useAuth();
+
+    useEffect(() => {
+        if (!user) {
+            navigate("/");
+        }
+    }, [user]);
     
     const navigate = useNavigate();
     const [dashboardContent, setDashboardContent] = useState("Summary");
