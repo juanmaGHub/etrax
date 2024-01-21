@@ -1,1 +1,1 @@
-export const backendUrl = "http://etrax.onrender.com/api";
+export const backendUrl = "https://etrax.onrender.com/api";
