@@ -5,10 +5,12 @@ import { validateExpense } from "../utils/Validations";
 import { useParams, useNavigate } from "react-router-dom";
 import { makeRequest } from "../utils/RequestHandler";
 import { Notification } from "./Notification";
+import { useAuth } from "./UseAuthContext";
 
 export function Expense() {
     const { id } = useParams();
     const navigate = useNavigate();
+    const {user} = useAuth();
 
     // Notifications
     const [notification, setNotification] = useState({
@@ -41,6 +43,9 @@ export function Expense() {
     // Fetch categories and expense data on component load
     const [categories, setCategories] = useState([]);
     useEffect(() => {
+        if (!user) {
+            navigate("/");
+        }
         axiosFetchCategories().then(() => {
             axiosFetchData();
         });
