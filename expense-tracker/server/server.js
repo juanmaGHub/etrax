@@ -11,15 +11,8 @@ const app = express();
 
 const client_host = process.env.REACT_APP_SERVER || 'http://localhost';
 const client_port = process.env.REACT_APP_PORT || 5173;
-console.log(`${client_host}:${client_port}`);
-app.use(cors(
-    {
-        origin: [`${client_host}:${client_port}`],
-        methods: ["GET", "POST", "PUT", "DELETE"],
-        credentials: true,
-        
-    }
-));
+console.log(`${client_host}`);
+
 // Set middleware of CORS 
 app.use((req, res, next) => {
     res.setHeader(
@@ -41,6 +34,16 @@ app.use((req, res, next) => {
   
     next();
   });
+
+app.use(cors(
+    {
+        origin: [`${client_host}`],
+        methods: ["GET", "POST", "PUT", "DELETE"],
+        credentials: true,
+        
+    }
+));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
